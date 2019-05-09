@@ -25,9 +25,9 @@ void Delay(__IO u32 nCount);
   */
 int main(void)
 {	
+	uint8_t i;
 	/* LED ¶Ë¿Ú³õÊ¼»¯ */
 	LED_GPIO_Config();	 
-
 	while (1)
 	{
 		
