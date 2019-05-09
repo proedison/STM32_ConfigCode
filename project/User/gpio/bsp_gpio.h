@@ -62,5 +62,7 @@
 #define LED3_OFF		   digitalHi(LED3_GPIO_PORT,LED3_GPIO_PIN)
 #define LED3_ON			   digitalLo(LED3_GPIO_PORT,LED3_GPIO_PIN)
 
+#define GPIO_ALL_Init_Default(GPIO,GPIO_Pin,GPIO_Mode) _GPIO_ALL_Init(GPIO,GPIO_Pin,GPIO_Mode,GPIO_Speed_50MHz)     //初始化默认速度为50MHz
+void    GPIO_ALL_Init(char GPIO,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed);//初始设置IO
 
 #endif /* __GPIO_H */

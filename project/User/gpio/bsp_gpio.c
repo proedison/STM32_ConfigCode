@@ -14,53 +14,138 @@
   
 #include "bsp_gpio.h"   
 
+/* sys Function & define------------------------------------------------------*/
  /**
-  * @brief  初始化控制LED的IO
-  * @param  无
-  * @retval 无
+  * @brief  IO初始化
+  * @note   输入对应引脚与模式，速度
+			GPIO_Mode_AIN = 0x0,
+			GPIO_Mode_IN_FLOATING = 0x04,
+			GPIO_Mode_IPD = 0x28,
+			GPIO_Mode_IPU = 0x48,
+			GPIO_Mode_Out_OD = 0x14,
+			GPIO_Mode_Out_PP = 0x10,
+			GPIO_Mode_AF_OD = 0x1C,
+			GPIO_Mode_AF_PP = 0x18
+
+			GPIO_Speed_10MHz = 1,
+			GPIO_Speed_2MHz, 
+			GPIO_Speed_50MHz
+  * @param  None
+  * @retval None
   */
-void GPIO_Config(void)
-{		
-		/*定义一个GPIO_InitTypeDef类型的结构体*/
-		GPIO_InitTypeDef GPIO_InitStructure;
+void GPIOA_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
 
-		/*开启LED相关的GPIO外设时钟*/
-		RCC_APB2PeriphClockCmd( LED1_GPIO_CLK | LED2_GPIO_CLK | LED3_GPIO_CLK, ENABLE);
-	
-		/*选择要控制的GPIO引脚*/
-		GPIO_InitStructure.GPIO_Pin = LED1_GPIO_PIN;	
+	GPIO_InitTypeDef  GPIO_InitStructure;
 
-		/*设置引脚模式为通用推挽输出*/
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;   
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);	 //使能端口时钟
 
-		/*设置引脚速率为50MHz */   
-		GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz; 
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+}
 
-		/*调用库函数，初始化GPIO*/
-		GPIO_Init(LED1_GPIO_PORT, &GPIO_InitStructure);	
-	
-		
-		/*选择要控制的GPIO引脚*/
-		GPIO_InitStructure.GPIO_Pin = LED2_GPIO_PIN;
+void GPIOB_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+	GPIO_InitTypeDef  GPIO_InitStructure;
 
-		/*调用库函数，初始化GPIO*/
-		GPIO_Init(LED2_GPIO_PORT, &GPIO_InitStructure);
-		
-		/*选择要控制的GPIO引脚*/
-		GPIO_InitStructure.GPIO_Pin = LED3_GPIO_PIN;
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);	 //使能端口时钟
 
-		/*调用库函数，初始化GPIOF*/
-		GPIO_Init(LED3_GPIO_PORT, &GPIO_InitStructure);
-		
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOB, &GPIO_InitStructure);
+}
+void GPIOC_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
 
-		/* 关闭所有led灯	*/
-		GPIO_SetBits(LED1_GPIO_PORT, LED1_GPIO_PIN);
-		
-		/* 关闭所有led灯	*/
-		GPIO_SetBits(LED2_GPIO_PORT, LED2_GPIO_PIN);	 
-    
-        /* 关闭所有led灯	*/
-		GPIO_SetBits(LED3_GPIO_PORT, LED3_GPIO_PIN);
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);	 //使能端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+}
+void GPIOD_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD, ENABLE);	 //使能端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOD, &GPIO_InitStructure);
+}
+void GPIOE_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOE, ENABLE);	 //使能端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOE, &GPIO_InitStructure);
+}
+void GPIOF_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOF, ENABLE);	 //使能端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOF, &GPIO_InitStructure);
+}
+void GPIOG_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+	GPIO_InitTypeDef  GPIO_InitStructure;
+
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOG, ENABLE);	 //使能端口时钟
+
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin;			         //端口配置
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode; 		         //推挽输出
+	GPIO_InitStructure.GPIO_Speed = GPIO_Speed;		 //IO口速度为50MHz
+	GPIO_Init(GPIOG, &GPIO_InitStructure);
+}
+
+ /**
+  * @brief  所有IO初始化
+  * @note   输入对应引脚与模式，速度，同意配置io口可同时配置
+			GPIO_Mode_AIN = 0x0,
+			GPIO_Mode_IN_FLOATING = 0x04,
+			GPIO_Mode_IPD = 0x28,
+			GPIO_Mode_IPU = 0x48,
+			GPIO_Mode_Out_OD = 0x14,
+			GPIO_Mode_Out_PP = 0x10,
+			GPIO_Mode_AF_OD = 0x1C,
+			GPIO_Mode_AF_PP = 0x18
+
+			GPIO_Speed_10MHz = 1,
+			GPIO_Speed_2MHz, 
+			GPIO_Speed_50MHz 
+  * @param  None
+  * @retval None
+  */
+void GPIO_ALL_Init(char GPIO,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+{
+	switch(GPIO)
+	{
+		case 'A':GPIOA_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'B':GPIOB_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'C':GPIOC_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'D':GPIOD_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'E':GPIOE_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'F':GPIOF_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 'G':GPIOG_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+	}
 }
 
 /*********************************************END OF FILE**********************/

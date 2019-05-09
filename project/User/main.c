@@ -25,7 +25,6 @@ void Delay(__IO u32 nCount);
   */
 int main(void)
 {	
-	uint8_t i;
 	/* LED 端口初始化 */
 	LED_GPIO_Config();	 
 	while (1)
