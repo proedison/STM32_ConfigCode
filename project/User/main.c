@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
   * @file    main.c
-  * @author  fire
+  * @author  edison
   * @version V1.0
-  * @date    2013-xx-xx
-  * @brief   ²âÊÔled
+  * @date    2019-xx-xx
+  * @brief   æµ‹è¯•led
   ******************************************************************************
   * @attention
   *
@@ -19,14 +19,14 @@
 void Delay(__IO u32 nCount); 
 
 /**
-  * @brief  Ö÷º¯Êı
-  * @param  ÎŞ  
-  * @retval ÎŞ
+  * @brief  ä¸»å‡½æ•°
+  * @param  æ—   
+  * @retval æ— 
   */
 int main(void)
 {	
 	uint8_t i;
-	/* LED ¶Ë¿Ú³õÊ¼»¯ */
+	/* LED ç«¯å£åˆå§‹åŒ– */
 	LED_GPIO_Config();	 
 	while (1)
 	{
@@ -34,7 +34,7 @@ int main(void)
 	}
 }
 
-void Delay(__IO uint32_t nCount)	 //¼òµ¥µÄÑÓÊ±º¯Êı
+void Delay(__IO uint32_t nCount)	 //ç®€å•çš„å»¶æ—¶å‡½æ•°
 {
 	for(; nCount != 0; nCount--);
 }
