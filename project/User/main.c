@@ -34,7 +34,6 @@ int main(void)
 		Delay(0X1FFFFF);
 		GPIO_T(GPIOB,GPIO_Pin_13);
 		Delay(0X1FFFFF);
-		
 	}
 }
 
