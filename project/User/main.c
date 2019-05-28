@@ -15,8 +15,8 @@
 #include "stm32f10x.h"
 #include "bsp_led.h"
 
-
 void Delay(__IO u32 nCount); 
+
 
 /**
   * @brief  主函数
@@ -26,12 +26,18 @@ void Delay(__IO u32 nCount);
 int main(void)
 {	
 	/* LED 端口初始化 */
-	LED_GPIO_Config();	 
+	LED_GPIO_Config();	
+	
 	while (1)
 	{
+		GPIO_T(GPIOB,GPIO_Pin_13);
+		Delay(0X1FFFFF);
+		GPIO_T(GPIOB,GPIO_Pin_13);
+		Delay(0X1FFFFF);
 		
 	}
 }
+
 
 void Delay(__IO uint32_t nCount)	 //简单的延时函数
 {

@@ -118,7 +118,7 @@ void GPIOG_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef G
 
  /**
   * @brief  所有IO初始化
-  * @note   输入对应引脚与模式，速度，同意配置io口可同时配置
+  * @note   输入对应引脚与模式，速度，统一配置io口可同时配置
 			GPIO_Mode_AIN = 0x0,
 			GPIO_Mode_IN_FLOATING = 0x04,
 			GPIO_Mode_IPD = 0x28,
@@ -131,20 +131,25 @@ void GPIOG_Init(uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef G
 			GPIO_Speed_10MHz = 1,
 			GPIO_Speed_2MHz, 
 			GPIO_Speed_50MHz 
-  * @param  None
+  * @param  GPIO : 'A'~'B'/1~7/A~B
+            GPIO_Pin : GPIO_Pin_1~GPIO_Pin_15/GPIO_Pin_ALL
+            GPIO_Mode : IN/OUT
+			GPIO_Speed :  GPIO_Speed_10MHz
+						  GPIO_Speed_2MHz 
+						  GPIO_Speed_50MHz
   * @retval None
   */
-void GPIO_ALL_Init(char GPIO,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
+void GPIO_A_G_Init(uint8_t GPIO,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode,GPIOSpeed_TypeDef GPIO_Speed)
 {
 	switch(GPIO)
-	{
-		case 'A':GPIOA_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'B':GPIOB_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'C':GPIOC_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'D':GPIOD_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'E':GPIOE_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'F':GPIOF_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
-		case 'G':GPIOG_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+	{        
+		case 1:GPIOA_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 2:GPIOB_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 3:GPIOC_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 4:GPIOD_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 5:GPIOE_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 6:GPIOF_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;
+		case 7:GPIOG_Init(GPIO_Pin,GPIO_Mode,GPIO_Speed);break;		
 	}
 }
 
